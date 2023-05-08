@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Pets</h2>
+    </div>
+
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th *ngFor="let header of headers" scope="col">
+                        {{ header }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pet of pets">
+                    <td>{{ pet.id }}</td>
+                    <td>{{ pet.name }}</td>
+                    <td>{{ pet.code }}</td>
+                    <td>{{ pet.type }}</td>
+                    <td>{{ pet.color }}</td>
+                    <td>{{ pet.country }}</td>
+                    <td>
+                        <a routerLink="/pets/{{ pet.id }}" class="btn btn-primary">Edit pet</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

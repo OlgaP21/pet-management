@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Edit a pet</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+                <div class="mb-3">
+                    <label for="name">Name</label>
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="name"
+                            [(ngModel)]="currentPet.name"
+                            required
+                            #name="ngModel"
+                            minlength="3"
+                            [ngClass]="{ 'is-invalid': f.submitted && name.errors }"
+                        />
+                        <div *ngIf="f.submitted && name.errors">
+                            <div *ngIf="name.errors['required']">Name is required</div>
+                            <div *ngIf="name.errors['minlength']">Name must be at least 3 characters</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="code">Code</label>
+                    <div class="input-group">
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="code"
+                            [(ngModel)]="currentPet.code"
+                            required
+                            min="1"
+                            #code="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && code.errors }"
+                        />
+                        <div *ngIf="f.submitted && code.errors">
+                            <div *ngIf="code.errors['required']">Code is required</div>
+                            <div *ngIf="code.errors['min']">Code minimum value is 1</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="type">Type</label>
+                    <select
+                        class="custom-select d-block w-100 form-control"
+                        name="type"
+                        [(ngModel)]="currentPet.type"
+                        required
+                        #type="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && type.errors }"
+                    >
+                        <option value="">Choose...</option>
+                        <option *ngFor="let type of types">{{ type.type }}</option>
+                    </select>
+                    <div *ngIf="f.submitted && type.errors" class="invalid-feedback">
+                        <div *ngIf="type.errors['required']">Type is required</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="color">Fur color</label>
+                    <select
+                        class="custom-select d-block w-100 form-control"
+                        name="color"
+                        [(ngModel)]="currentPet.color"
+                        required
+                        #color="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && color.errors }"
+                    >
+                        <option value="">Choose...</option>
+                        <option *ngFor="let color of colors">{{ color.color }}</option>
+                    </select>
+                    <div *ngIf="f.submitted && color.errors" class="invalid-feedback">
+                        <div *ngIf="color.errors['required']">Color is required</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="country">Country of origin</label>
+                    <select
+                        class="custom-select d-block w-100 form-control"
+                        name="country"
+                        [(ngModel)]="currentPet.country"
+                        required
+                        #country="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && country.errors }"
+                    >
+                        <option value="">Choose...</option>
+                        <option *ngFor="let country of countries">{{ country.country }}</option>
+                    </select>
+                    <div *ngIf="f.submitted && country.errors">
+                        <div *ngIf="country.errors['required']">Country is required</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">
+                    Update pet
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

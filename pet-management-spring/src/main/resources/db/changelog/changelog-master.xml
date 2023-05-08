@@ -1,0 +1,16 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.17.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    
+    <include file="/db/changelog/changes/create-pet-type-table.sql"/>
+    <include file="/db/changelog/changes/create-pet-fur-color-table.sql"/>
+    <include file="/db/changelog/changes/create-pet-country-of-origin-table.sql"/>
+    <include file="/db/changelog/changes/insert-pet-type-data.sql"/>
+    <include file="/db/changelog/changes/insert-pet-fur-color-data.sql"/>
+    <include file="/db/changelog/changes/insert-pet-country-of-origin-data.sql"/>
+    <include file="/db/changelog/changes/create-pet-table.sql"/>
+    <include file="/db/changelog/changes/insert-pet-data.sql"/>
+</databaseChangeLog>
